@@ -10,6 +10,8 @@ jobs:
   print-hello-world:
     runs-on: ubuntu-latest
     steps:
-      - name: execute echo command
+      - name: python version
         run: python --version
+      - name: echo CONDA
+        run: echo $CONDA
 
