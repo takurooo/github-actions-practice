@@ -15,4 +15,7 @@ jobs:
       - name: echo CONDA
         run: echo $CONDA
       - run: pwd
-
+      - name: Check out repository code
+        uses: actions/checkout@v2
+      - run: echo ${{ github.workspace }}
+      - run: echo ${{ github.repository }}
