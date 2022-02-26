@@ -5,10 +5,13 @@ jobs:
   show_pipenv_version:
     runs-on: ubuntu-latest
     steps:
-      - name: Dump job context
-        run: pip install pipenv
-      - name: Dump job context
-        run: pipenv --version
+      - name: Check out repository code
+        uses: actions/checkout@v2
+      - run: pip install pipenv
+      - run: pipenv --version
+      - run: pipenv install --dev
+      - name: run test
+        run: pipenv run test
       - name: result
         if: ${{ success() }}
         run: echo "success"
