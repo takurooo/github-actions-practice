@@ -11,6 +11,7 @@ jobs:
         uses: actions/setup-python@v2
         with:
           python-version: 3.8.0
+      - run: echo ${{ github.ref }}
       - name: Dump GitHub context
         id: github_context_step
         run: echo '${{ toJSON(github) }}'
