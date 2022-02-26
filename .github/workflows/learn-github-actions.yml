@@ -2,7 +2,7 @@ name: testing
 on: pull_request
 
 jobs:
-  show_pipenv_version:
+  pr_test:
     runs-on: ubuntu-latest
     steps:
       - name: Check out repository code
