@@ -10,4 +10,5 @@ jobs:
       - name: Dump job context
         run: pipenv --version
       - name: result
-        run: echo ${{ success() }}
+        if: ${{ success() }}
+        run: echo "success"
