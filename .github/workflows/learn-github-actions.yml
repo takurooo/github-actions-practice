@@ -1,5 +1,5 @@
 name: testing
-on: pull_request
+on: [pull_request, push]
 
 jobs:
   show_pipenv_version:
@@ -7,6 +7,11 @@ jobs:
     steps:
       - name: Check out repository code
         uses: actions/checkout@v2
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: ${{ matrix.python-version }}
+      - run: git branch
       - run: pip install pipenv
       - run: pipenv --version
       - run: pipenv install --dev
