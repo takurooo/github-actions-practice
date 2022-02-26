@@ -1,5 +1,5 @@
 name: testing
-on: push
+on: pull_request
 
 jobs:
   show_pipenv_version:
