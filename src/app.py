@@ -1,5 +1,5 @@
 
 
 
-def return_true():
+def exec():
     return True

@@ -1,4 +1,4 @@
 import app
 
-def test_sample():
-    assert False
+def test_app_exec():
+    assert app.exec()
