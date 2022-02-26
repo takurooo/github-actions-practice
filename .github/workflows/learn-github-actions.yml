@@ -1,5 +1,5 @@
 name: testing
-on: pull_request
+on: [pull_request, push]
 
 jobs:
   pr_test:
@@ -7,6 +7,10 @@ jobs:
     steps:
       - name: Check out repository code
         uses: actions/checkout@v2
+      - name: Setup Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: "3.9.0"
       - run: pip install pipenv
       - run: pipenv --version
       - run: pipenv install --dev
