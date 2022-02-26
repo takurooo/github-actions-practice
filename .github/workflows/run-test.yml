@@ -23,7 +23,7 @@ jobs:
           pipenv install --dev
       - name: run test
         run: pipenv run test
-      - run: echo ${{ success() }}
+      - run: echo '${{ success() }}'
       - name: result
         if: ${{ success() }}
         run: echo "success"
