@@ -11,19 +11,19 @@ jobs:
         uses: actions/setup-python@v2
         with:
           python-version: 3.8.0
-      - run: echo ${{ github.ref }}
       - name: Dump GitHub context
-        id: github_context_step
         run: echo '${{ toJSON(github) }}'
-      - name: Dump env context 
-        run: echo '${{ toJSON(env) }}' 
-      - run: git checkout main
-      - run: git branch
-      - run: pip install pipenv
-      - run: pipenv --version
-      - run: pipenv install --dev
+      - run: |
+          git branch
+          git checkout ${{ github.ref }}
+      - run: |
+          pip install pipenv
+          pipenv --version
+      - run: |
+          pipenv install --dev
       - name: run test
         run: pipenv run test
+      - run: echo ${{ success() }}
       - name: result
         if: ${{ success() }}
         run: echo "success"
