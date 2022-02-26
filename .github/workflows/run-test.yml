@@ -11,7 +11,7 @@ jobs:
         uses: actions/setup-python@v2
         with:
           python-version: ${{ matrix.python-version }}
-      - run: git checkout b2
+      - run: git checkout b1
       - run: git branch
       - run: pip install pipenv
       - run: pipenv --version
