@@ -10,8 +10,10 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v2
         with:
-          python-version: ${{ matrix.python-version }}
-      - run: git checkout b1
+          python-version: 3.8.0
+      - name: Dump env context 
+        run: echo '${{ toJSON(env) }}' 
+      - run: git checkout main
       - run: git branch
       - run: pip install pipenv
       - run: pipenv --version
