@@ -8,6 +8,8 @@ jobs:
       - run: echo ${{ job.status }}
       - name: Check out repository code
         uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
       - name: Set up Python
         uses: actions/setup-python@v2
         with:
@@ -16,7 +18,6 @@ jobs:
         run: echo '${{ toJSON(github) }}'
       - run: |
           git branch
-          git checkout ${{ github.ref }}
       - run: |
           pip install pipenv
           pipenv --version
