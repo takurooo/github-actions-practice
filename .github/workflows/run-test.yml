@@ -20,6 +20,8 @@ jobs:
           git branch
           git checkout b3
       - run: |
+          ls
+      - run: |
           pip install pipenv
           pipenv --version
       - run: |
