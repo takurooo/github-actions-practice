@@ -3,15 +3,14 @@ on: [pull_request, push]
 
 env:
   PYTHON_VERSION: 3.9
-  GITHUB_ACTOR: "hoge"
+  CI: "hoge"
 
 jobs:
   show_pipenv_version:
     runs-on: ubuntu-latest
     steps:
-      - name: Dump env values 
-        run: |
-          echo ${{ env.GITHUB_ACTOR }}
+      - run: |
+          cho ${{ env.GITHUB_ACTOR }}
           echo $GITHUB_ACTOR
       - name: Dump env object 
         run: echo '${{ toJSON(env) }}' 
