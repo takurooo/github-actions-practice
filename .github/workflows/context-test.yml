@@ -17,3 +17,8 @@ jobs:
         run: echo '${{ toJSON(strategy) }}' 
       - name: Dump matrix context 
         run: echo '${{ toJSON(matrix) }}'
+  dump_env:
+     runs-on: ubuntu-latest
+     steps:
+      - name: Dump env
+        run: echo env
