@@ -3,11 +3,15 @@ on: [pull_request, push]
 
 env:
   PYTHON_VERSION: 3.9
+  CI: false
 
 jobs:
   show_pipenv_version:
     runs-on: ubuntu-latest
     steps:
+      - run: | 
+        echo ${{ env.CI }}
+        echo $CI
       - name: Dump env object 
         run: echo '${{ toJSON(env) }}' 
       - run: env
