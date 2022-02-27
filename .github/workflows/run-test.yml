@@ -1,45 +1,25 @@
-name: testing
+name: run_test
 on: [pull_request, push]
+
+env:
+  PYTHON_VERSION: 3.8
 
 jobs:
   show_pipenv_version:
     runs-on: ubuntu-latest
     steps:
-      - run: echo ${{ job.status }}
       - name: Check out repository code
         uses: actions/checkout@v2
-        # with:
-        #   path: work
-        #   fetch-depth: 0
       - name: Set up Python
         uses: actions/setup-python@v2
         with:
-          python-version: 3.8.0
-      - name: Dump GitHub context
-        run: echo '${{ toJSON(github) }}'
-      - run: |
-          git branch
-          git log
-          # git checkout b3
-      - run: |
-          echo ${{ github.workspace }}
-          pwd
-          ls
-      - run: |
+          python-version: ${{ env.PYTHON_VERSION }}
+      - name: Install pipenv
+        run:
           pip install pipenv
-          pipenv --version
-      - run: |
+      - name: Install dev packages
+        run:
           pipenv install --dev
-      - run: |
-          date > generated.txt
-          git config user.name github-actions
-          git config user.email github-actions@github.com
-          git add .
-          git commit -m "generated"
-          git push
-      - name: run test
-        run: pipenv run test
-      - run: echo ${{ job.status }}
-      - name: result
-        if: ${{ success() }}
-        run: echo "success"
+      - name: Run test
+        run: 
+          pipenv run test
