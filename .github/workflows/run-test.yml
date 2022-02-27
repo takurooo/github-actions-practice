@@ -10,7 +10,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: | 
-        echo ${{ env.CI }}
         echo $CI
       - name: Dump env object 
         run: echo '${{ toJSON(env) }}' 
