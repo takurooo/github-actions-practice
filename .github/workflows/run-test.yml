@@ -18,6 +18,10 @@ jobs:
       - name: Dump GitHub context
         run: echo '${{ toJSON(github) }}'
       - run: |
+          echo ${{ github.workspace }}
+          pwd
+          ls
+      - run: |
           git branch
           git log
           # git checkout b3
