@@ -9,7 +9,7 @@ jobs:
       - name: Check out repository code
         uses: actions/checkout@v2
         with:
-          ref: b3
+          path: work
         #   fetch-depth: 0
       - name: Set up Python
         uses: actions/setup-python@v2
@@ -22,6 +22,8 @@ jobs:
           git log
           # git checkout b3
       - run: |
+          echo ${{ github.workspace }}
+          pwd
           ls
       - run: |
           pip install pipenv
