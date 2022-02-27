@@ -9,8 +9,8 @@ jobs:
   show_pipenv_version:
     runs-on: ubuntu-latest
     steps:
-      - run: | 
-        echo $CI
+      - run: echo ${{ env.CI }}
+      - run: echo $CI
       - name: Dump env object 
         run: echo '${{ toJSON(env) }}' 
       - run: env
