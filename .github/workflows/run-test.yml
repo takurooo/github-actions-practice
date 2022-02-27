@@ -10,8 +10,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: |
-          echo ${{ env.GITHUB_ACTOR }}
-          echo $GITHUB_ACTOR
+          echo ${{ env.CI }}
+          echo $CI
       - name: Dump env object 
         run: echo '${{ toJSON(env) }}' 
       - run: env
