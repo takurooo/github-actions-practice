@@ -8,8 +8,9 @@ jobs:
   show_pipenv_version:
     runs-on: ubuntu-latest
     steps:
-      - name: Check out repository code
-        uses: actions/checkout@v2
+      - name: Dump env object 
+        run: echo '${{ toJSON(env) }}' 
+      - run: env
       - name: Set up Python
         uses: actions/setup-python@v2
         with:
@@ -17,6 +18,8 @@ jobs:
       - name: Install pipenv
         run:
           pip install pipenv
+      - name: Check out repository code
+        uses: actions/checkout@v2
       - name: Install dev packages
         run:
           pipenv install --dev
