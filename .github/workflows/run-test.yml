@@ -9,9 +9,10 @@ jobs:
   show_pipenv_version:
     runs-on: ubuntu-latest
     steps:
-      - run:
-        echo ${{ env.GITHUB_ACTOR }}
-        echo $GITHUB_ACTOR
+      - name: Dump env values 
+        run: |
+          echo ${{ env.GITHUB_ACTOR }}
+          echo $GITHUB_ACTOR
       - name: Dump env object 
         run: echo '${{ toJSON(env) }}' 
       - run: env
